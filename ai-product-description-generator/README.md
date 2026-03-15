@@ -4,16 +4,17 @@ A full-stack web application that uses AI to generate compelling product descrip
 
 ## Features
 
-- **AI-Powered Descriptions**: Uses OpenAI's GPT-3.5 Turbo model to generate product descriptions
+- **Free AI-Powered Descriptions**: Uses rule-based template generation (no API key required)
 - **Customizable Input**: Specify product name, type, features, target audience, tone, and length
 - **Modern UI**: Clean, responsive React interface with Material-UI components
 - **Easy to Use**: Simple form-based input with real-time generation
+- **Production Ready**: Can be deployed for free using serve
 
 ## Tech Stack
 
 ### Backend
 - **Node.js** with **Express** framework
-- **OpenAI API** for AI-powered text generation
+- **Rule-based AI** for template-driven text generation
 - **CORS** for cross-origin requests
 - **dotenv** for environment variables
 
@@ -27,7 +28,9 @@ A full-stack web application that uses AI to generate compelling product descrip
 ### Prerequisites
 - Node.js (version 14 or higher)
 - npm or yarn
-- OpenAI API key
+
+### Free Version (No API Key Required)
+This version uses a rule-based AI model with template generation, so no external API key is required.
 
 ### Backend Setup
 
@@ -41,21 +44,11 @@ A full-stack web application that uses AI to generate compelling product descrip
    npm install
    ```
 
-3. Create a `.env` file based on `.env.example`:
-   ```bash
-   cp .env.example .env
-   ```
-
-4. Add your OpenAI API key to the `.env` file:
-   ```
-   OPENAI_API_KEY=your_openai_api_key_here
-   ```
-
-5. Start the backend server:
+3. Start the backend server:
    ```bash
    npm start
    ```
-   The server will run on `http://localhost:5000`
+   The server will run on `http://localhost:5002`
 
 ### Frontend Setup
 
@@ -74,6 +67,22 @@ A full-stack web application that uses AI to generate compelling product descrip
    npm start
    ```
    The app will open in your browser at `http://localhost:3000`
+
+### Production Deployment
+
+To deploy the app for free:
+
+1. Build the frontend:
+   ```bash
+   npm run build
+   ```
+
+2. Serve the build folder:
+   ```bash
+   npx serve -s build
+   ```
+
+3. The app will be available at `http://localhost:51953` (port may vary)
 
 ## Usage
 
@@ -120,8 +129,7 @@ Generates a product description based on the provided parameters.
 ## Environment Variables
 
 ### Backend
-- `OPENAI_API_KEY`: Your OpenAI API key (required)
-- `PORT`: Server port (optional, defaults to 5000)
+- `PORT`: Server port (optional, defaults to 5002)
 
 ## Project Structure
 
@@ -148,8 +156,8 @@ ai-product-description-generator/
 
 ### Common Issues
 
-1. **CORS Errors**: Make sure the frontend is running on `localhost:3000` and backend on `localhost:5000`
-2. **API Key Errors**: Verify your OpenAI API key is correctly set in the `.env` file
+1. **CORS Errors**: Make sure the frontend is running on `localhost:3000` and backend on `localhost:5002`
+2. **Port Conflicts**: If port 5002 is in use, change the PORT environment variable in backend/.env
 3. **Network Errors**: Ensure both servers are running and accessible
 
 ### Getting Help
@@ -157,7 +165,7 @@ ai-product-description-generator/
 If you encounter issues:
 1. Check the browser console for frontend errors
 2. Check the terminal for backend errors
-3. Verify your OpenAI API key is valid and has sufficient credits
+3. Ensure both servers are running on the correct ports (backend: 5002, frontend: 3000)
 
 ## Contributing
 
